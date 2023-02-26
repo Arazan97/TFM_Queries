@@ -1,0 +1,8 @@
+MATCH (P:Product)
+WITH DISTINCT ID(P) AS PID
+MATCH (O:Offer)
+WHERE PID = O.product
+MERGE (P)-[:Oferta]->(O)
+RETURN DISTINCT  P, O
+ORDER BY O.price DESC
+LIMIT 10

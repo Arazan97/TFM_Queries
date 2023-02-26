@@ -1,0 +1,3 @@
+LOAD CSV FROM 'file:///dataFromRatingSite_1_1G.csv' AS row
+WITH row[0] AS Person_name,row[1] AS Person_mbox_sha1sum, row[2] AS Person_country, row[3] AS Person_publisher, row[4] AS Person_publishDate, toInteger(row[5]) AS Person_Attribute_id 
+CREATE (Person:Person {id:Person_Attribute_id, name:Person_name, mbox:Person_mbox_sha1sum,country:Person_country, publisher:Person_publisher, publishDate:Person_publishDate})

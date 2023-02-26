@@ -1,0 +1,3 @@
+LOAD CSV FROM 'file:///dataFromStandardizationInstitution.csv' AS row
+WITH toInteger(row[6]) AS StandardID,toInteger(row[4]) AS ProductTypeID, row[0] AS label_ProductType, row[1] AS comment_ProductType, toInteger(row[2]) AS publisher_ProductType, row[3] AS PublishDate_ProductType, toInteger(row[5]) AS subClassOf_ProductType, row[7] AS label_1, row[8] AS comment_1, toInteger(row[9]) AS publisher_1, row[10] AS publishDate_1, toInteger(row[11]) AS PrFeatureID
+CREATE (ProductFeature:ProductFeature {id:PrFeatureID, label:label_1, comment:comment_1, publisher:publisher_1, publishDate:publishDate_1})
